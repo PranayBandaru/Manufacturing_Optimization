@@ -34,28 +34,19 @@ export class Navigation extends React.Component {
                 </a>
               </li>
               <li>
-                <a href="#about" className="page-scroll">
-                  About
+                <a href="#layout" className="page-scroll">
+                  Layout
                 </a>
               </li>
               <li>
-                <a href="#services" className="page-scroll">
-                  Services
+                <a href="#dashboard" className="page-scroll">
+                  Dashboard
                 </a>
               </li>
+              
               <li>
-                <a href="#portfolio" className="page-scroll">
-                  Gallery
-                </a>
-              </li>
-              <li>
-                <a href="#team" className="page-scroll">
-                  Team
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="page-scroll">
-                  Contact
+                <a href="#connect" className="page-scroll">
+                  Connect
                 </a>
               </li>
             </ul>

@@ -5,7 +5,18 @@ var button_name = "N E X T";
 
 export class numbers extends React.Component {
 
-   
+    constructor(){
+        super();
+        this.state = {
+            active: false,
+        };
+    }
+    
+    toggleClass() {
+        const currentState = this.state.active;
+        this.setState({ active: !currentState });
+    };
+
   render() {
     return (
       <div id="numbers" className="text-center">
@@ -16,10 +27,15 @@ export class numbers extends React.Component {
 
           <div className= "container">
                <ul className="progressbar">
-                    <li className="active">Inspiron</li>
-                    <li>Vostro</li>
-                    <li>XPS</li>
-                    <li>Alienware</li>
+                    <li
+                     className={this.state.active ? 'active': null} 
+                onClick={this.toggleClass}>Inspiron</li>
+                    <li className={this.state.active ? 'active': null} 
+                onClick={this.toggleClass}>Vostro</li>
+                    <li className={this.state.active ? 'active': null} 
+                onClick={this.toggleClass}>XPS</li>
+                    <li className={this.state.active ? 'active': null} 
+                onClick={this.toggleClass}>G-Series</li>
                 </ul>
           </div>
 
