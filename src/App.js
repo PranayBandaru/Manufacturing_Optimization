@@ -12,7 +12,7 @@ export class App extends React.Component {
       <div>
         <Navbar /> 
         <Header />
-        <Numbers />
+        <Numbers data = "C O M P U T E"/>
       </div>
     )
   }
