@@ -1,5 +1,7 @@
 import React from "react";
 import {optimize} from "./logic_Algo.js";
+import {connect } from 'react-redux';
+import { fetchOptimised} from '../actions/index';
 var button_name = "N E X T";
 
 
@@ -99,6 +101,8 @@ export class numbers extends React.Component {
 
           //GO FOR PROCESSING
           var lines = optimize(this.state.final);
+          console.log(lines);
+          this.props.fetchOptimised(lines);
           window.scrollBy(0,700);
 
         }
@@ -208,4 +212,12 @@ toggleClass4() {
   }
 }
 
-export default numbers;
+// const mapStateToProps = (state) => {
+//   // console.log(state);
+//   return {
+   
+//   };
+// };
+
+
+export default connect(null, {fetchOptimised:fetchOptimised})(numbers);

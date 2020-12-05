@@ -9,20 +9,20 @@ import Dashboard from './components/dashboard';
 import Connect from './components/connect';
 
 var dat = [{
-  "icon": "400",
-  "name": "Lorem ipsum dolor"
+  "icon": "6",
+  "name": "Manufacturing Lines"
 },
 {
-  "icon": "63%",
-  "name": "Consectetur adipiscing"
+  "icon": "3",
+  "name": "Step production"
 },
 {
-  "icon": "3123",
-  "name": "Lorem ipsum dolor",
+  "icon": "3 * 8",
+  "name": "Hour Shifts",
 },
 {
-  "icon": "321",
-  "name": "Consectetur adipiscing",
+  "icon": "0",
+  "name": "Backlog Orders",
 }
 
 

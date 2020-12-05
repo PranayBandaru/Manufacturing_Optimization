@@ -1,5 +1,7 @@
-var input  = [ { product : "XPS" , backlog : 15 , sales: 12 , extra : 20}, { product : "Vostro" , backlog : 10 , sales: 16 , extra : 12},
-{ product : "GSeries" , backlog : 4 , sales: 15 , extra : 2}, { product : "Inspiron" , backlog : 9 , sales: 10 , extra : 17}]
+var input1  = [ { product : "XPS" , backlog : 0 , sales: 0, extra : 0}, { product : "Vostro" , backlog : 0 , sales: 0 , extra : 0},
+{ product : "GSeries" , backlog : 0 , sales: 0 , extra :0}, { product : "Inspiron" , backlog : 0 , sales: 0 , extra : 0}]
+
+
 var times = {
     XPS:[2,3,2],    //XPS
     Inspiron: [2,2,2],    //Inspiron
@@ -16,9 +18,6 @@ const initialise = (arr)=> {
     return arr; 
 }
 
-input.sort((a,b)=>{
-    return a.backlog - b.backlog 
-})
 
 //console.log(input)
 
@@ -56,6 +55,8 @@ function first_index(lines, step_no,min){
 
 //-----------------------------------------------OPTIMIZE--------------------------------------------------
 export const optimize = (input) => {
+    //console.log("----------------------------------------------------------------");
+    //console.log(input);
     var temp_swap;
     var loc;
     for(var i=0;i<4;i++){
@@ -288,7 +289,7 @@ export const optimize = (input) => {
 //step_complete_temp = (step_complete.step1/6+1)*times[p_name][0]; 
 
 
-    console.log(lines);
+    //console.log(lines);
     //console.log(lines[1].step1[250])
     //console.log(first_index(lines,1));
     return(lines);
@@ -297,7 +298,6 @@ export const optimize = (input) => {
 
 }
 
-optimize(input) 
 
 
 // bubble_Sort(backlogs)
