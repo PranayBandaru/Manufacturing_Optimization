@@ -172,6 +172,7 @@ toggleClass4() {
           </div>
 
           <div className= "container">
+            
                <ul className="progressbar">
                     <li
                      className={this.state.active1 ? 'active': null} 
