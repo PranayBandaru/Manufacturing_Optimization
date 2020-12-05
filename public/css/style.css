@@ -324,7 +324,7 @@ text-align: center;
 }
 
 #compute_button{
-	margin-top: 80px;
+	margin-top: 10px;
 	font-size: 18px;
 }
 
@@ -379,7 +379,11 @@ text-align: center;
 	background-color:#27ae60;
 	border: 0px;
 	}
-
+#warning_label{
+	font-size: 13px;
+	margin-top: 50px;
+	color:  #252525;
+}
 
 /* Layout Section */
 #layout {
