@@ -19,10 +19,6 @@ var dat = [{
 {
   "icon": "3 * 8",
   "name": "Hour Shifts",
-},
-{
-  "icon": "0",
-  "name": "Backlog Orders",
 }
 
 

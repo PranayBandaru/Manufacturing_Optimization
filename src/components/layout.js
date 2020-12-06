@@ -12,6 +12,10 @@ export class layout extends React.Component {
     this.toggleClass5 = this.toggleClass5.bind(this);
     this.toggleClass6 = this.toggleClass6.bind(this);
     this.toggleClass7 = this.toggleClass7.bind(this);
+    this.initialise = this.initialise.bind(this);
+    this.initialise_o = this.initialise_o.bind(this);
+    this.daywise_initialize = this.daywise_initialize.bind(this);
+    //this.daywise_fill = this.daywise_fill.bind(this);
     this.state = {
       active1: true,
       active2: false,
@@ -19,10 +23,121 @@ export class layout extends React.Component {
       active4: false, 
       active5: false,
       active6: false,
-      active7: false,     
+      active7: false,
+      check: 0
     }
     
   }
+
+  initialise(arr){
+    for(var i=0 ; i<48;i++){
+        arr[i] = 0;
+    }
+    return arr; 
+}
+  initialise_o(arr, len){
+  for(var i=0 ; i<len;i++){
+      arr.push(new Object());
+  }
+  return arr; 
+}
+
+  daywise_initialize(){
+    /*
+    this.state.daywise_nums = this.initialise_o(new Array(7),7);
+    console.log(this.state.daywise_nums);
+    for(var i = 0; i<7; i++){      
+         this.state.daywise_nums[i].line1 = new Object();
+         this.state.daywise_nums[i].line2 = new Object();
+         this.state.daywise_nums[i].line3 = new Object();
+         this.state.daywise_nums[i].line4 = new Object();
+         this.state.daywise_nums[i].line5 = new Object();
+         this.state.daywise_nums[i].line6 = new Object();
+         this.state.daywise_nums[i].line1.step1 = this.initialise(new Array(48),48);
+         this.state.daywise_nums[i].line1.step2 = this.initialise(new Array(48),48);
+         this.state.daywise_nums[i].line1.step3 = this.initialise(new Array(48),48);
+         this.state.daywise_nums[i].line2.step1 = this.initialise(new Array(48),48);
+         this.state.daywise_nums[i].line2.step2 = this.initialise(new Array(48),48);
+         this.state.daywise_nums[i].line2.step3 = this.initialise(new Array(48),48);
+         this.state.daywise_nums[i].line3.step1 = this.initialise(new Array(48),48);
+         this.state.daywise_nums[i].line3.step2 = this.initialise(new Array(48),48);
+         this.state.daywise_nums[i].line3.step3 = this.initialise(new Array(48),48);
+         this.state.daywise_nums[i].line4.step1 = this.initialise(new Array(48),48);
+         this.state.daywise_nums[i].line4.step2 = this.initialise(new Array(48),48);
+         this.state.daywise_nums[i].line4.step3 = this.initialise(new Array(48),48);
+         this.state.daywise_nums[i].line5.step1 = this.initialise(new Array(48),48);
+         this.state.daywise_nums[i].line5.step2 = this.initialise(new Array(48),48);
+         this.state.daywise_nums[i].line5.step3 = this.initialise(new Array(48),48);
+         this.state.daywise_nums[i].line6.step1 = this.initialise(new Array(48),48);
+         this.state.daywise_nums[i].line6.step2 = this.initialise(new Array(48),48);
+         this.state.daywise_nums[i].line6.step3 = this.initialise(new Array(48),48);
+         }
+      */
+     var line1 = {step1 : this.initialise(new Array(48)),step2 : this.initialise(new Array(48)), step3 : this.initialise(new Array(48)) };
+     var line2 = {step1 : this.initialise(new Array(48)),step2 : this.initialise(new Array(48)), step3 : this.initialise(new Array(48)) };
+     var line3 = {step1 : this.initialise(new Array(48)),step2 : this.initialise(new Array(48)), step3 : this.initialise(new Array(48)) };
+     var line4 = {step1 : this.initialise(new Array(48)),step2 : this.initialise(new Array(48)), step3 : this.initialise(new Array(48)) };
+     var line5 = {step1 : this.initialise(new Array(48)),step2 : this.initialise(new Array(48)), step3 : this.initialise(new Array(48)) };
+     var line6 = {step1 : this.initialise(new Array(48)),step2 : this.initialise(new Array(48)), step3 : this.initialise(new Array(48)) };
+     var day1 = {line1, line2, line3, line4, line5, line6};
+     var day2 = {line1, line2, line3, line4, line5, line6};
+     var day3 = {line1, line2, line3, line4, line5, line6};
+     var day4 = {line1, line2, line3, line4, line5, line6};
+     var day5 = {line1, line2, line3, line4, line5, line6};
+     var day6 = {line1, line2, line3, line4, line5, line6};
+     var day7 = {line1, line2, line3, line4, line5, line6};
+
+     //this.state.daywise_nums.setState([day1,day2,day3,day4,day5,day6,day7]);
+     var daywise_nums_ = [day1,day2,day3,day4,day5,day6,day7];
+     this.setState({daywise_nums: [day1,day2,day3,day4,day5,day6,day7]});
+     console.log("INSIDE INITIALISE");
+     console.log(this.state.daywise_nums);
+
+    
+  }
+
+  daywise_fill(){
+    if(this.state.check>0){
+    console.log("INSIDE FILL------------------------------------")
+    console.log(this.state.daywise_nums[0]);
+    for(var i = 0; i<7; i++){
+      for(var j = i* 48; j<(i+1)*48; j++){
+        /*
+        console.log(i);
+        console.log("---------------------------------------------");
+        console.log(j- 48*i);
+        console.log("/////////////////////////////////////////////");
+        console.log(j);
+        */
+        this.state.daywise_nums[i].line1.step1[j- 48*i] = this.props.optimized[0].step1[j];
+        console.log(this.props.optimized[0].step1[j]);
+        this.state.daywise_nums[i].line1.step2[j- 48*i] = this.props.optimized[0].step2[j];
+        this.state.daywise_nums[i].line1.step3[j- 48*i] = this.props.optimized[0].step3[j];
+        
+        this.state.daywise_nums[i].line2.step1[j- 48*i] = this.props.optimized[1].step1[j];
+        this.state.daywise_nums[i].line2.step2[j- 48*i] = this.props.optimized[1].step2[j];
+        this.state.daywise_nums[i].line2.step3[j- 48*i] = this.props.optimized[1].step3[j];
+        
+        this.state.daywise_nums[i].line3.step1[j- 48*i] = this.props.optimized[2].step1[j];
+        this.state.daywise_nums[i].line3.step2[j- 48*i] = this.props.optimized[2].step2[j];
+        this.state.daywise_nums[i].line3.step3[j- 48*i] = this.props.optimized[2].step3[j];
+        
+        this.state.daywise_nums[i].line4.step1[j- 48*i] = this.props.optimized[3].step1[j];
+        this.state.daywise_nums[i].line4.step2[j- 48*i] = this.props.optimized[3].step2[j];
+        this.state.daywise_nums[i].line4.step3[j- 48*i] = this.props.optimized[3].step3[j];
+        
+        this.state.daywise_nums[i].line5.step1[j- 48*i] = this.props.optimized[4].step1[j];
+        this.state.daywise_nums[i].line5.step2[j- 48*i] = this.props.optimized[4].step2[j];
+        this.state.daywise_nums[i].line5.step3[j- 48*i] = this.props.optimized[4].step3[j];
+        
+        this.state.daywise_nums[i].line6.step1[j- 48*i] = this.props.optimized[5].step1[j];
+        this.state.daywise_nums[i].line6.step2[j- 48*i] = this.props.optimized[5].step2[j];
+        this.state.daywise_nums[i].line6.step3[j- 48*i] = this.props.optimized[5].step3[j];
+        
+      }
+    }
+  }
+}
 
   toggleClass1(){
     
@@ -116,10 +231,21 @@ export class layout extends React.Component {
     this.setState({ active7: !currentState });
   }
 
+
   render() {
 
     //console.log(this.props.optimized)
-    //if(!this.props.optimized)return null;
+    if(!this.props.optimized)return null;
+    if(this.state.check < 4)
+    {
+    this.daywise_initialize();
+    this.daywise_fill();
+    console.log("INSIDE RENDER");
+    console.log(this.state.check);
+    console.log(this.state.daywise_nums);
+    this.setState( {check: this.state.check+1});
+    }
+    
     return (
         <div id="layout">
         <div className="container">

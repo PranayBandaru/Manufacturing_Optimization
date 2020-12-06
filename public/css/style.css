@@ -613,6 +613,11 @@ ul#weekdays li{
 	box-shadow: 10px 10px 10px rgba(0,0,0,.05);
 }
 
+#graph_2{
+	margin-bottom: 10px;
+	padding-top: 25px;
+}
+
  .stat {
 	display: inline-block;
 	font-size: 42px;

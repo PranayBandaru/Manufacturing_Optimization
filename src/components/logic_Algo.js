@@ -36,7 +36,7 @@ var sales = [];
 var extra = [];
 
 //-----------------------------------------------FIRST INDEX--------------------------------------------------
-function first_index(lines, step_no,min){
+function first_index(lines, step_no, min){
     //console.log(lines);
     var min_index = 336;
     var min_line_no;
@@ -289,7 +289,7 @@ export const optimize = (input) => {
 //step_complete_temp = (step_complete.step1/6+1)*times[p_name][0]; 
 
 
-    //console.log(lines);
+    console.log(lines);
     //console.log(lines[1].step1[250])
     //console.log(first_index(lines,1));
     return(lines);

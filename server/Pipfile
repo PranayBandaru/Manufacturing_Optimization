@@ -1,0 +1,22 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+flask = "*"
+flask-restful = "*"
+flask-mongoengine = "*"
+flask-bcrypt = "*"
+flask-cors = "*"
+pandas = "*"
+matplotlib = "*"
+scipy = "*"
+statsmodels = "*"
+sklearn = "*"
+numpy = "*"
+
+[requires]
+python_version = "3.8"
