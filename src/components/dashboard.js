@@ -72,12 +72,6 @@ export class dashboard extends React.Component {
             '#025e03',
             '#ad3103'
           ],
-          hoverBackgroundColor: [
-          '#501800',
-          '#4B5000',
-          '#175000',
-          '#003350'
-          ],
           data: [this.state.total_xps/2,this.state.total_vostro,this.state.total_gseries,this.state.total_inspiron/2]
         }
       ]

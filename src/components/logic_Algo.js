@@ -45,7 +45,7 @@ function first_index(lines, step_no, min){
     step_no = String("step"+step_no);
     for(var i = 0; i<lines.length; i++){
         for(var k =min; k<336; k++){
-            if(lines[i][step_no][k] == 0 && k < min_index && ((k+1) %16 != 0 ) && ((k) %16 != 0 ) && ((k-1) %16 != 0 )){
+            if(lines[i][step_no][k] == 0 && k < min_index && ((k+1) %16 != 0 ) && ((k+1) %15!= 0 ) && ((k+1) %17 != 0 )){
                 min_index = k;
                 min_line_no = i+1;
                 break;
