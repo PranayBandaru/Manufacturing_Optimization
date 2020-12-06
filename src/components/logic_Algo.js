@@ -1,5 +1,7 @@
-var input1  = [ { product : "XPS" , backlog : 0 , sales: 0, extra : 0}, { product : "Vostro" , backlog : 0 , sales: 0 , extra : 0},
-{ product : "GSeries" , backlog : 0 , sales: 0 , extra :0}, { product : "Inspiron" , backlog : 0 , sales: 0 , extra : 0}]
+var input1  = [ { product : "XPS" , backlog : 0 , sales: 0, extra : 0},
+                { product : "Vostro" , backlog : 0 , sales: 0 , extra : 0},
+                { product : "GSeries" , backlog : 0 , sales: 0 , extra :0}, 
+                { product : "Inspiron" , backlog : 0 , sales: 0 , extra : 0}]
 
 
 var times = {
@@ -43,7 +45,7 @@ function first_index(lines, step_no, min){
     step_no = String("step"+step_no);
     for(var i = 0; i<lines.length; i++){
         for(var k =min; k<336; k++){
-            if(lines[i][step_no][k] == 0 && k < min_index){
+            if(lines[i][step_no][k] == 0 && k < min_index && ((k+1) %16 != 0 ) && ((k) %16 != 0 ) && ((k-1) %16 != 0 )){
                 min_index = k;
                 min_line_no = i+1;
                 break;
@@ -55,8 +57,8 @@ function first_index(lines, step_no, min){
 
 //-----------------------------------------------OPTIMIZE--------------------------------------------------
 export const optimize = (input) => {
-    //console.log("----------------------------------------------------------------");
-    //console.log(input);
+    console.log("---------------------||||||||||||||||||||||||-------------------------------------------");
+    console.log(input);
     var temp_swap;
     var loc;
     for(var i=0;i<4;i++){
@@ -135,7 +137,7 @@ export const optimize = (input) => {
             }
             if(step_complete.step1>0){
                 loc = first_index(lines,2,step_ends.step1);
-                for(var t = 0; t<times[p_name][0]; t++){
+                for(var t = 0; t<times[p_name][1]; t++){
                     if((loc[0]+t+1)%16 == 0){
                         loc[0] = loc[0] + t+1;
                     }
@@ -149,7 +151,7 @@ export const optimize = (input) => {
             }
             if(step_complete.step2>0){
                 loc = first_index(lines,3,step_ends.step2);
-                for(var t = 0; t<times[p_name][0]; t++){
+                for(var t = 0; t<times[p_name][2]; t++){
                     if((loc[0]+t+1)%16 == 0){
                         loc[0] = loc[0] + t+1;
                     }
@@ -180,13 +182,14 @@ export const optimize = (input) => {
                 }
                 for(var j =0; j< times[p_name][0]; j++){
                     lines[loc[1]-1].step1[loc[0]+j]  = sales[lv].product;
+                    step_ends.step1 = loc[0] + j+ 1;
                 }
                 p1_sales--;
                 step_complete.step1++;
             }
             if(step_complete.step1>0){
                 loc = first_index(lines,2,step_ends.step1);
-                for(var t = 0; t<times[p_name][0]; t++){
+                for(var t = 0; t<times[p_name][1]; t++){
                     if((loc[0]+t+1)%16 == 0){
                         loc[0] = loc[0] + t+1;
                     }
@@ -195,19 +198,21 @@ export const optimize = (input) => {
                     //console.log(loc);
                     //console.log(step_ends.step2);
                     lines[loc[1]-1].step2[loc[0]+j]  = sales[lv].product;
+                    step_ends.step2 = loc[0] + j+ 1;
                 }
                 step_complete.step1--;
                 step_complete.step2++;
             }
             if(step_complete.step2>0){
                 loc = first_index(lines,3,step_ends.step2);
-                for(var t = 0; t<times[p_name][0]; t++){
+                for(var t = 0; t<times[p_name][2]; t++){
                     if((loc[0]+t+1)%16 == 0){
                         loc[0] = loc[0] + t+1;
                     }
                 }
                 for(var j =0; j< times[p_name][2]; j++){
                     lines[loc[1]-1].step3[loc[0]+j]  = sales[lv].product;
+                    step_ends.step3 = loc[0] + j+ 1;
                 }
                 step_complete.step2--;
                 step_complete.step3++;
@@ -237,7 +242,7 @@ export const optimize = (input) => {
             }
             if(step_complete.step1>0){
                 loc = first_index(lines,2,step_ends.step1);
-                for(var t = 0; t<times[p_name][0]; t++){
+                for(var t = 0; t<times[p_name][1]; t++){
                     if((loc[0]+t+1)%16 == 0){
                         loc[0] = loc[0] + t+1;
                     }
@@ -252,7 +257,7 @@ export const optimize = (input) => {
             if(step_complete.step2>0){
                 loc = first_index(lines,3,step_ends.step2);
 
-                for(var t = 0; t<times[p_name][0]; t++){
+                for(var t = 0; t<times[p_name][2]; t++){
                     if((loc[0]+t+1)%16 == 0){
                         loc[0] = loc[0] + t+1;
                     }

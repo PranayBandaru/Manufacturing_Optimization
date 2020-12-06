@@ -71,7 +71,7 @@ export class numbers extends React.Component {
           this.setState({ active2: true });
           this.state.final[0].backlog = parseInt(this.state.backlog_num);
           this.state.final[0].sales = parseInt(this.state.current_ord_num);
-          this.state.final[0].extra = this.state.pred_num - this.state.current_ord_num;        
+          this.state.final[0].extra = ((this.state.pred_num - this.state.current_ord_num)<0 ? 0 : (this.state.pred_num - this.state.current_ord_num));        
           console.log(this.state.final);  
         }
         else if(currentState2){
@@ -80,7 +80,7 @@ export class numbers extends React.Component {
           this.setState({ active3: true });
           this.state.final[1].backlog = parseInt(this.state.backlog_num);
           this.state.final[1].sales = parseInt(this.state.current_ord_num);
-          this.state.final[1].extra = this.state.pred_num - this.state.current_ord_num;
+          this.state.final[1].extra = ((this.state.pred_num - this.state.current_ord_num)<0 ? 0 : (this.state.pred_num - this.state.current_ord_num)); 
           console.log(this.state.final);
         }
         else if(currentState3){
@@ -89,14 +89,14 @@ export class numbers extends React.Component {
           this.setState({ active4: true });
           this.state.final[2].backlog = parseInt(this.state.backlog_num);
           this.state.final[2].sales = parseInt(this.state.current_ord_num);
-          this.state.final[2].extra = this.state.pred_num - this.state.current_ord_num;
+          this.state.final[2].extra = ((this.state.pred_num - this.state.current_ord_num)<0 ? 0 : (this.state.pred_num - this.state.current_ord_num)); 
           console.log(this.state.final);
         }
         else if(currentState4){
           console.log("S4 hit");
           this.state.final[3].backlog = parseInt(this.state.backlog_num);
           this.state.final[3].sales = parseInt(this.state.current_ord_num);
-          this.state.final[3].extra = this.state.pred_num - this.state.current_ord_num;
+          this.state.final[3].extra = ((this.state.pred_num - this.state.current_ord_num)<0 ? 0 : (this.state.pred_num - this.state.current_ord_num)); 
           console.log(this.state.final);
 
           //GO FOR PROCESSING
