@@ -3,9 +3,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Preview
-https://firebasestorage.googleapis.com/v0/b/garbagegone-fa7e4.appspot.com/o/image.jpg?alt=media&token=c130a876-f174-4131-a8dc-69b02ece98d5
-https://firebasestorage.googleapis.com/v0/b/garbagegone-fa7e4.appspot.com/o/image%20(1).jpg?alt=media&token=34f84ec3-5d38-4a44-bef1-dec3637635a5
+<p align="center"><img src="https://firebasestorage.googleapis.com/v0/b/garbagegone-fa7e4.appspot.com/o/image.jpg?alt=media&token=c130a876-f174-4131-a8dc-69b02ece98d5"></p> 
 
+<p align="center"><img src="https://firebasestorage.googleapis.com/v0/b/garbagegone-fa7e4.appspot.com/o/image%20(1).jpg?alt=media&token=34f84ec3-5d38-4a44-bef1-dec3637635a5"></p> 
 
 ## Available Scripts
 
